@@ -165,16 +165,16 @@ binds {
       "dev.peelz.pzs.AppLauncher.Toggle"
   }
   Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
-    spawn "uwsm" "app" "kitty.desktop";
+    spawn "uwsm" "app" "kitty.desktop"
   }
   Mod+G allow-inhibiting=false hotkey-overlay-title="Librewolf" {
-    spawn "uwsm" "app" "librewolf.desktop";
+    spawn "uwsm" "app" "librewolf.desktop"
   }
   Mod+Shift+G allow-inhibiting=false hotkey-overlay-title="Librewolf (incognito)" {
-    spawn "uwsm" "app" "librewolf.desktop:new-private-window";
+    spawn "uwsm" "app" "librewolf.desktop:new-private-window"
   }
   Mod+H allow-inhibiting=false hotkey-overlay-title="File Explorer" {
-    spawn "uwsm" "app" "org.gnome.Nautilus.desktop";
+    spawn "uwsm" "app" "org.gnome.Nautilus.desktop"
   }
 
   XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
@@ -191,23 +191,23 @@ binds {
   }
 
   XF86AudioPlay allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "play-pause";
+    spawn "playerctl" "play-pause"
   }
   XF86AudioStop allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "stop";
+    spawn "playerctl" "stop"
   }
   XF86AudioNext allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "next";
+    spawn "playerctl" "next"
   }
   XF86AudioPrev allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "previous";
+    spawn "playerctl" "previous"
   }
 
   XF86MonBrightnessUp allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "s" "+1%";
+    spawn "brightnessctl" "s" "+1%"
   }
   XF86MonBrightnessDown allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "s" "1%-";
+    spawn "brightnessctl" "s" "1%-"
   }
 
   Mod+Shift+X allow-inhibiting=false { close-window; }
@@ -294,7 +294,7 @@ binds {
   Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
   Mod+Scroll_Lock allow-inhibiting=false hotkey-overlay-title="Dismiss Notifications" {
-    spawn "makoctl" "dismiss" "-a";
+    spawn "makoctl" "dismiss" "-a"
   }
   Mod+Pause allow-inhibiting=false hotkey-overlay-title="Toggle Do Not Disturb" {
     spawn "bash" "-c" "
@@ -305,15 +305,15 @@ binds {
         fi
       done < <(makoctl mode -t do-not-disturb)
       notify-send -c system \"Do not disturb OFF\"
-    ";
+    "
   }
 
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
-    spawn "fcitx5-remote" "-t";
+    spawn "fcitx5-remote" "-t"
   }
   MouseBack allow-inhibiting=false hotkey-overlay-title="Mute Microphone (Discord)" {
-    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleMute";
+    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleMute"
   }
 
   Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
