@@ -1,0 +1,10 @@
+[Unit]
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=swaybg -i %E/background
+Slice=app-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target

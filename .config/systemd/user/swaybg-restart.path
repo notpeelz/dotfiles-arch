@@ -1,0 +1,5 @@
+[Path]
+PathModified=%E/background
+
+[Install]
+WantedBy=graphical-session.target
