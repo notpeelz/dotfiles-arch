@@ -36,6 +36,7 @@ input {
     natural-scroll
   }
 
+  disable-power-key-handling
 }
 
 gestures {
