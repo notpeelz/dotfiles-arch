@@ -1,0 +1,14 @@
+@import "firefox-mod-blur/userContent.css";
+
+::-moz-focus-inner {
+  outline: none !important;
+}
+
+@-moz-document url("about:home"),
+url("about:newtab"),
+url("about:privatebrowsing") {
+  .search-inner-wrapper { display: none !important }
+  body {
+    background: url("../../../.config/firefox-background") center/cover no-repeat fixed !important;
+  }
+}

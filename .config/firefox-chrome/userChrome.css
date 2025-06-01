@@ -1,0 +1,10 @@
+@import "firefox-mod-blur/userChrome.css";
+@import "hide-tab-bar.css";
+
+:root {
+  --firefoxcss-control-buttons-margin: 0;
+}
+
+#urlbar-input::placeholder { color: transparent }
+
+#sidebar-title[value="Tree Style Tab"]::before { content: "Tabs" }

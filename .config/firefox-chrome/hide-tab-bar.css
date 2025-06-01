@@ -1,0 +1,27 @@
+/* Hide sidebar close button (because Tree Style Tab is almost always open) */
+#sidebar-close {
+  visibility: collapse;
+}
+
+/* Hide tabs when OS titlebar is enabled (intended to use with Tree Style Tab) */
+#main-window:not([tabsintitlebar]) #TabsToolbar,
+#main-window:not([tabsintitlebar]) #tabbrowser-tabs {
+  visibility: collapse;
+}
+
+/* Hide titlebar incognito indicator */
+#main-window[privatebrowsingmode=temporary]:not([tabsintitlebar])
+  #titlebar
+  .private-browsing-indicator,
+#main-window[privatebrowsingmode=temporary]:not([tabsintitlebar])
+  #private-browsing-indicator-with-label {
+  visibility: collapse;
+}
+
+/* Add navbar incognito indicator */
+#main-window[privatebrowsingmode=temporary]:not([tabsintitlebar])
+  #navigator-toolbox
+  #PanelUI-button
+  #PanelUI-menu-button {
+  padding-inline-end: 0 !important;
+}

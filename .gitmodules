@@ -1,0 +1,3 @@
+[submodule ".config/firefox-chrome/firefox-mod-blur"]
+	path = .config/firefox-chrome/firefox-mod-blur
+	url = https://github.com/notpeelz/Firefox-Mod-Blur.git
