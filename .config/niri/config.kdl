@@ -293,20 +293,6 @@ binds {
   Print hotkey-overlay-title=null { screenshot show-pointer=false; }
   Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
-  Mod+Scroll_Lock allow-inhibiting=false hotkey-overlay-title="Dismiss Notifications" {
-    spawn "makoctl" "dismiss" "-a"
-  }
-  Mod+Pause allow-inhibiting=false hotkey-overlay-title="Toggle Do Not Disturb" {
-    spawn "bash" "-c" "
-       while IFS=\"\" read -r p; do
-        if [[ \"$p\" == \"do-not-disturb\" ]]; then
-          notify-send -c system \"Do not disturb ON\"
-          exit \"$?\"
-        fi
-      done < <(makoctl mode -t do-not-disturb)
-      notify-send -c system \"Do not disturb OFF\"
-    "
-  }
 
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
