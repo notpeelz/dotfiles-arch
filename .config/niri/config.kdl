@@ -294,6 +294,12 @@ binds {
   Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
 
+  Mod+P allow-inhibiting=false {
+    spawn "bash" "-c" "
+      niri msg action do-screen-transition --delay-ms 300;
+      WAYLAND_DISPLAY=wayland-1 hyprlock
+    "
+  }
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
     spawn "fcitx5-remote" "-t"
