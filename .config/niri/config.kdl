@@ -1,0 +1,305 @@
+spawn-at-startup "uwsm" "finalize" "NIRI_SOCKET" "DISPLAY" "XCURSOR_THEME" "XCURSOR_SIZE"
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+clipboard {
+  disable-primary
+}
+
+input {
+  mod-key "mod5"
+  mod-key-nested "super"
+
+  keyboard {
+    numlock
+
+    xkb {
+      layout "kcx"
+    }
+
+    repeat-delay 300
+    repeat-rate 50
+  }
+
+  mouse {
+    accel-profile "flat"
+  }
+
+  // warp-mouse-to-focus
+}
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+cursor {
+  xcursor-theme "capitaine-cursors"
+  xcursor-size 48
+}
+
+environment {
+  DISPLAY ":0"
+}
+
+output "Acer Technologies XB270HU #ASM9tUVZnard" {
+  mode "2560x1440@119.998"
+  scale 1
+  transform "normal"
+  position x=0 y=0
+}
+
+output "Dell Inc. DELL AW2723DF 9CGJNP3" {
+  mode "2560x1440@279.958"
+  scale 1
+  transform "normal"
+  position x=2560 y=0
+  focus-at-startup
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
+}
+
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop true
+}
+
+layout {
+  background-color "#00000000"
+
+  gaps 2
+
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+
+  default-column-display "tabbed"
+  default-column-width { proportion 0.5; }
+
+  focus-ring {
+    off
+    width 2
+    active-color "#3B3E93FF"
+    inactive-color "#505050"
+  }
+
+  border {
+    width 2
+    active-color "#3B3E93FF"
+    inactive-color "#505050"
+  }
+
+  /-struts {
+    left 6
+    right 6
+  }
+
+  tab-indicator {
+    hide-when-single-tab
+    gaps-between-tabs 2
+    corner-radius 8
+    width 2
+    gap -2
+    length total-proportion=0.5
+    position "top"
+    place-within-column
+    active-color "#4C9330"
+    inactive-color "#2C3059"
+  }
+}
+
+prefer-no-csd
+
+screenshot-path "~/pictures/screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png"
+
+window-rule {
+  match app-id=r#"^org.gnome.Nautilus$"# title="^Save As$"
+  match app-id=r#"^org.gnome.Nautilus$"# title="^File Upload$"
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"^org.pulseaudio.pavucontrol$"#
+  default-column-width { proportion 0.33333; }
+}
+
+window-rule {
+  match app-id=".*"
+  geometry-corner-radius 2
+  clip-to-geometry true
+}
+
+binds {
+  Mod+Space allow-inhibiting=false hotkey-overlay-title="App launcher" {
+    spawn "dbus-send" \
+      "--session" \
+      "--print-reply" \
+      "--dest=dev.peelz.pzs" \
+      "/dev/peelz/pzs" \
+      "dev.peelz.pzs.AppLauncher.Toggle"
+  }
+  Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
+    spawn "uwsm" "app" "kitty.desktop";
+  }
+  Mod+G allow-inhibiting=false hotkey-overlay-title="Librewolf" {
+    spawn "uwsm" "app" "librewolf.desktop";
+  }
+  Mod+Shift+G allow-inhibiting=false hotkey-overlay-title="Librewolf (incognito)" {
+    spawn "uwsm" "app" "librewolf.desktop:new-private-window";
+  }
+  Mod+H allow-inhibiting=false hotkey-overlay-title="File Explorer" {
+    spawn "uwsm" "app" "org.gnome.Nautilus.desktop";
+  }
+
+  XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"
+  }
+  XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"
+  }
+  XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"
+  }
+  XF86AudioMicMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
+  }
+
+  XF86AudioPlay allow-inhibiting=false hotkey-overlay-title=null {
+    spawn "playerctl" "play-pause";
+  }
+  XF86AudioStop allow-inhibiting=false hotkey-overlay-title=null {
+    spawn "playerctl" "stop";
+  }
+  XF86AudioNext allow-inhibiting=false hotkey-overlay-title=null {
+    spawn "playerctl" "next";
+  }
+  XF86AudioPrev allow-inhibiting=false hotkey-overlay-title=null {
+    spawn "playerctl" "previous";
+  }
+
+  Mod+Shift+X allow-inhibiting=false { close-window; }
+
+  Mod+Tab { toggle-overview; }
+  Mod+O allow-inhibiting=false { expand-column-to-available-width; }
+  Mod+V allow-inhibiting=false { switch-focus-between-floating-and-tiling; }
+  Mod+Shift+V allow-inhibiting=false { toggle-window-floating; }
+
+  Mod+A allow-inhibiting=false { focus-column-left; }
+  Mod+S allow-inhibiting=false { focus-window-down; }
+  Mod+W allow-inhibiting=false { focus-window-up; }
+  Mod+D allow-inhibiting=false { focus-column-right; }
+
+  Mod+Shift+A allow-inhibiting=false { move-column-left; }
+  Mod+Shift+S allow-inhibiting=false { move-window-down; }
+  Mod+Shift+W allow-inhibiting=false { move-window-up; }
+  Mod+Shift+D allow-inhibiting=false { move-column-right; }
+
+  Mod+Left allow-inhibiting=false { focus-column-left; }
+  Mod+Down allow-inhibiting=false { focus-window-down; }
+  Mod+Up allow-inhibiting=false { focus-window-up; }
+  Mod+Right allow-inhibiting=false { focus-column-right; }
+
+  Mod+Shift+Left allow-inhibiting=false { move-column-left; }
+  Mod+Shift+Down allow-inhibiting=false { move-window-down; }
+  Mod+Shift+Up allow-inhibiting=false { move-window-up; }
+  Mod+Shift+Right allow-inhibiting=false { move-column-right; }
+
+  Mod+Home allow-inhibiting=false { focus-column-first; }
+  Mod+End allow-inhibiting=false { focus-column-last; }
+
+  Mod+Q allow-inhibiting=false { focus-monitor-left; }
+  Mod+E allow-inhibiting=false { focus-monitor-right; }
+  Mod+Shift+Q allow-inhibiting=false { move-column-to-monitor-left; }
+  Mod+Shift+E allow-inhibiting=false { move-column-to-monitor-right; }
+
+  Mod+Page_Down allow-inhibiting=false { focus-workspace-down; }
+  Mod+Page_Up allow-inhibiting=false { focus-workspace-up; }
+  Mod+Shift+Page_Down allow-inhibiting=false { move-column-to-workspace-down; }
+  Mod+Shift+Page_Up allow-inhibiting=false { move-column-to-workspace-up; }
+
+  // Mod+WheelScrollDown allow-inhibiting=false { focus-column-right; }
+  // Mod+WheelScrollUp allow-inhibiting=false { focus-column-left; }
+  // Mod+Shift+WheelScrollDown allow-inhibiting=false { move-column-right; }
+  // Mod+Shift+WheelScrollUp allow-inhibiting=false { move-column-left; }
+  Mod+WheelScrollDown allow-inhibiting=false cooldown-ms=60 { focus-workspace-down; }
+  Mod+WheelScrollUp allow-inhibiting=false cooldown-ms=60 { focus-workspace-up; }
+
+  Mod+1 allow-inhibiting=false { focus-workspace 1; }
+  Mod+2 allow-inhibiting=false { focus-workspace 2; }
+  Mod+3 allow-inhibiting=false { focus-workspace 3; }
+  Mod+4 allow-inhibiting=false { focus-workspace 4; }
+  Mod+5 allow-inhibiting=false { focus-workspace 5; }
+  Mod+6 allow-inhibiting=false { focus-workspace 6; }
+  Mod+7 allow-inhibiting=false { focus-workspace 7; }
+  Mod+8 allow-inhibiting=false { focus-workspace 8; }
+  Mod+9 allow-inhibiting=false { focus-workspace 9; }
+  Mod+Shift+1 allow-inhibiting=false { move-column-to-workspace 1; }
+  Mod+Shift+2 allow-inhibiting=false { move-column-to-workspace 2; }
+  Mod+Shift+3 allow-inhibiting=false { move-column-to-workspace 3; }
+  Mod+Shift+4 allow-inhibiting=false { move-column-to-workspace 4; }
+  Mod+Shift+5 allow-inhibiting=false { move-column-to-workspace 5; }
+  Mod+Shift+6 allow-inhibiting=false { move-column-to-workspace 6; }
+  Mod+Shift+7 allow-inhibiting=false { move-column-to-workspace 7; }
+  Mod+Shift+8 allow-inhibiting=false { move-column-to-workspace 8; }
+  Mod+Shift+9 allow-inhibiting=false { move-column-to-workspace 9; }
+
+  Mod+X allow-inhibiting=false { toggle-column-tabbed-display; }
+  Mod+T allow-inhibiting=false { consume-or-expel-window-right; }
+  Mod+Shift+T allow-inhibiting=false { consume-or-expel-window-left; }
+  // Mod+Comma allow-inhibiting=false { consume-or-expel-window-left; }
+  // Mod+Period allow-inhibiting=false { consume-or-expel-window-right; }
+
+  Mod+R allow-inhibiting=false { switch-preset-column-width; }
+  Mod+Shift+R allow-inhibiting=false { reset-window-height; }
+  Mod+F allow-inhibiting=false { maximize-column; }
+  Mod+Shift+F allow-inhibiting=false { fullscreen-window; }
+  Mod+C allow-inhibiting=false { center-column; }
+
+  Mod+Minus allow-inhibiting=false { set-column-width "-10%"; }
+  Mod+Equal allow-inhibiting=false { set-column-width "+10%"; }
+  Mod+0 allow-inhibiting=false { set-column-width "100%"; }
+
+  Mod+Shift+Minus allow-inhibiting=false { set-window-height "-10%"; }
+  Mod+Shift+Equal allow-inhibiting=false { set-window-height "+10%"; }
+  Mod+Shift+0 allow-inhibiting=false { set-window-height "100%"; }
+
+  Print hotkey-overlay-title=null { screenshot show-pointer=false; }
+  Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
+  Alt+Print hotkey-overlay-title=null { screenshot-window; }
+  Mod+Scroll_Lock allow-inhibiting=false hotkey-overlay-title="Dismiss Notifications" {
+    spawn "makoctl" "dismiss" "-a";
+  }
+  Mod+Pause allow-inhibiting=false hotkey-overlay-title="Toggle Do Not Disturb" {
+    spawn "bash" "-c" "
+       while IFS=\"\" read -r p; do
+        if [[ \"$p\" == \"do-not-disturb\" ]]; then
+          notify-send -c system \"Do not disturb ON\"
+          exit \"$?\"
+        fi
+      done < <(makoctl mode -t do-not-disturb)
+      notify-send -c system \"Do not disturb OFF\"
+    ";
+  }
+
+  Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
+  Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
+    spawn "fcitx5-remote" "-t";
+  }
+  MouseBack allow-inhibiting=false hotkey-overlay-title="Mute Microphone (Discord)" {
+    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleMute";
+  }
+
+  Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
+  Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
+}
