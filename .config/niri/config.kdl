@@ -25,6 +25,15 @@ input {
 
   mouse {
     accel-profile "flat"
+    accel-speed 0.0
+  }
+
+  touchpad {
+    tap
+    dwt
+    accel-profile "flat"
+    accel-speed 0.0
+    natural-scroll
   }
 
   // warp-mouse-to-focus
