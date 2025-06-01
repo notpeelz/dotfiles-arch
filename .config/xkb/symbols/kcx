@@ -1,0 +1,17 @@
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "qwerty" {
+  include "us(basic)"
+  name[Group1] = "KCX";
+
+  replace key <CAPS> {
+    type[Group1] = "ONE_LEVEL",
+    symbols[Group1] = [],
+    actions[Group1] = [ SetMods(modifiers=Mod5) ]
+  };
+
+  replace key <RALT> {
+    type[Group1] = "ONE_LEVEL",
+    symbols[Group1] = [ Multi_key ],
+    actions[Group1] = [ NoAction() ]
+  };
+};
