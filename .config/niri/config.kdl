@@ -36,7 +36,6 @@ input {
     natural-scroll
   }
 
-  // warp-mouse-to-focus
 }
 
 gestures {
@@ -107,11 +106,6 @@ layout {
     width 2
     active-color "#3B3E93FF"
     inactive-color "#505050"
-  }
-
-  /-struts {
-    left 6
-    right 6
   }
 
   tab-indicator {
@@ -237,10 +231,6 @@ binds {
   Mod+Shift+Page_Down allow-inhibiting=false { move-column-to-workspace-down; }
   Mod+Shift+Page_Up allow-inhibiting=false { move-column-to-workspace-up; }
 
-  // Mod+WheelScrollDown allow-inhibiting=false { focus-column-right; }
-  // Mod+WheelScrollUp allow-inhibiting=false { focus-column-left; }
-  // Mod+Shift+WheelScrollDown allow-inhibiting=false { move-column-right; }
-  // Mod+Shift+WheelScrollUp allow-inhibiting=false { move-column-left; }
   Mod+WheelScrollDown allow-inhibiting=false cooldown-ms=60 { focus-workspace-down; }
   Mod+WheelScrollUp allow-inhibiting=false cooldown-ms=60 { focus-workspace-up; }
 
@@ -266,8 +256,6 @@ binds {
   Mod+X allow-inhibiting=false { toggle-column-tabbed-display; }
   Mod+T allow-inhibiting=false { consume-or-expel-window-right; }
   Mod+Shift+T allow-inhibiting=false { consume-or-expel-window-left; }
-  // Mod+Comma allow-inhibiting=false { consume-or-expel-window-left; }
-  // Mod+Period allow-inhibiting=false { consume-or-expel-window-right; }
 
   Mod+R allow-inhibiting=false { switch-preset-column-width; }
   Mod+Shift+R allow-inhibiting=false { reset-window-height; }
