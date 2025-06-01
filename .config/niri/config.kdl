@@ -72,6 +72,14 @@ output "Dell Inc. DELL AW2723DF 9CGJNP3" {
   focus-at-startup
 }
 
+output "BOE 0x0BC9 Unknown" {
+  mode "2560x1600@165.000"
+  scale 1.5
+  transform "normal"
+  position x=0 y=0
+  focus-at-startup
+}
+
 overview {
   workspace-shadow {
     off
