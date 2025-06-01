@@ -26,14 +26,17 @@ input {
   mouse {
     accel-profile "flat"
     accel-speed 0.0
+    scroll-factor 1.0
   }
 
   touchpad {
     tap
     dwt
+    drag false
     accel-profile "flat"
     accel-speed 0.0
-    natural-scroll
+    scroll-factor 0.5
+    disabled-on-external-mouse
   }
 
   disable-power-key-handling
