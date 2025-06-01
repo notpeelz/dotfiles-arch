@@ -266,8 +266,8 @@ binds {
   Mod+Shift+9 allow-inhibiting=false { move-column-to-workspace 9; }
 
   Mod+X allow-inhibiting=false { toggle-column-tabbed-display; }
-  Mod+T allow-inhibiting=false { consume-or-expel-window-right; }
-  Mod+Shift+T allow-inhibiting=false { consume-or-expel-window-left; }
+  Mod+Comma allow-inhibiting=false { consume-or-expel-window-left; }
+  Mod+Period allow-inhibiting=false { consume-or-expel-window-right; }
 
   Mod+R allow-inhibiting=false { switch-preset-column-width; }
   Mod+Shift+R allow-inhibiting=false { reset-window-height; }
