@@ -5,6 +5,3 @@ After=graphical-session.target
 Type=exec
 ExecStart=wlsunset -l 45.5 -L -73.6 -t 3000
 Slice=app-graphical.slice
-
-[Install]
-WantedBy=graphical-session.target

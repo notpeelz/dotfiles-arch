@@ -5,6 +5,3 @@ After=graphical-session.target
 Type=exec
 ExecStart=swaybg -i %E/background
 Slice=app-graphical.slice
-
-[Install]
-WantedBy=graphical-session.target
