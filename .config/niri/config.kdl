@@ -296,8 +296,10 @@ binds {
 
   Mod+P allow-inhibiting=false {
     spawn "bash" "-c" "
-      niri msg action do-screen-transition --delay-ms 300;
-      WAYLAND_DISPLAY=wayland-1 hyprlock
+      pidof hyprlock || {
+        niri msg action do-screen-transition --delay-ms 300;
+        WAYLAND_DISPLAY=wayland-1 hyprlock
+      }
     "
   }
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
