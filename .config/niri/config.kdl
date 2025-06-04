@@ -180,11 +180,20 @@ binds {
   XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
     spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"
   }
+  Shift+XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.05+"
+  }
   XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
     spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"
   }
+  Shift+XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.05-"
+  }
   XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
     spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"
+  }
+  Shift+XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
   }
   XF86AudioMicMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
     spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
