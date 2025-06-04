@@ -3,7 +3,7 @@ After=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=sh -c 'niri msg action do-screen-transition --delay-ms 300 && hyprlock'
+ExecStart=sh -c 'niri msg action do-screen-transition && hyprlock'
 KillSignal=USR1
 RestartKillSignal=TERM
 Slice=session-graphical.slice
