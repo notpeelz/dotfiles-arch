@@ -304,7 +304,7 @@ binds {
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
 
   Mod+P allow-inhibiting=false {
-    spawn "loginctl" "lock-session"
+    spawn "systemctl" "--user" "start" "wlogout.service"
   }
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
