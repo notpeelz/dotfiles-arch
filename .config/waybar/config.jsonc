@@ -1,0 +1,131 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "modules-left": ["custom/toggle-overview", "niri/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "battery",
+    "network",
+    "backlight",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "inhibitor",
+    "custom/lock-session",
+    "custom/power-button",
+  ],
+
+  "custom/toggle-overview": {
+    "format": "󰣇",
+    "on-click": "niri msg action toggle-overview",
+    "tooltip": false,
+  },
+
+  "custom/lock-session": {
+    "format": "",
+    "on-click": "loginctl lock-session",
+    "tooltip": false,
+  },
+
+  "custom/power-button": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false,
+  },
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10,
+  },
+
+  "niri/workspaces": {
+    "all-outputs": false,
+    "format": "{icon}",
+    "tooltip-format": "{index}",
+    "on-click": "activate",
+    "height": "10",
+    "icon-size": 14,
+    "spacing": 10,
+  },
+
+  "clock": {
+    "format": "{:%A, %B %d, %Y (%I:%M %p)}",
+    "tooltip": false,
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 8+",
+    "on-scroll-down": "brightnessctl set 8-",
+    "smooth-scrolling-threshold": 1.0,
+    "tooltip": false,
+    "min-length": 6,
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20,
+    },
+    "format": "{icon} {capacity:>3}%",
+    "format-charging": " {capacity:>3}%",
+    "format-plugged": " {capacity:>3}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume:>3}%",
+    "format-muted": "   0%",
+    "on-click-right": "uwsm app org.pulseaudio.pavucontrol.desktop",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-",
+    "smooth-scrolling-threshold": 1.0,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume:>3}%",
+    "format-source-muted": "   0%",
+    "on-click-right": "uwsm app org.pulseaudio.pavucontrol.desktop",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-",
+    "smooth-scrolling-threshold": 1.0,
+  },
+
+  "inhibitor": {
+    "what": "sleep",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "☕",
+      "deactivated": "💤",
+    },
+    "tooltip": false,
+  },
+
+  "network": {
+    "format-wifi": "{icon} {essid}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format": "",
+    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)",
+    "tooltip-format-ethernet": "",
+    "tooltip-format-disconnected": "",
+  },
+}

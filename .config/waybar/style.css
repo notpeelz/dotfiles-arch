@@ -1,0 +1,85 @@
+* {
+  font-family: "JetbrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 12px;
+}
+
+window#waybar {
+  background: none;
+  color: white;
+}
+
+#custom-toggle-overview,
+#custom-power-button,
+#custom-lock-session,
+#clock,
+#battery,
+#network,
+#pulseaudio,
+#backlight,
+#inhibitor,
+#workspaces,
+#tray {
+  background: black;
+  padding: 0.5em 0.75em;
+  border-radius: 0.5em;
+  opacity: 0.75;
+  margin-top: 0.2em;
+}
+
+#workspaces {
+  padding: 0;
+}
+
+#workspaces button {
+  padding: 0 0.5em;
+  border: 0;
+  transition: .2s ease;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#custom-toggle-overview {
+  margin-left: 1em;
+  padding-right: 1.15em;
+  margin-right: 0.5em;
+}
+
+#inhibitor {
+  border-radius: 0.5em 0 0 0.5em;
+  margin-left: 0.5em;
+}
+
+#custom-lock-session {
+  border-radius: 0;
+}
+
+#custom-power-button {
+  margin-right: 1em;
+  padding-right: 1.15em;
+  border-radius: 0 0.5em 0.5em 0;
+}
+
+#tray {
+  margin-right: 0.5em;
+  padding-right: 0.9em;
+}
+
+#battery {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+#network, #pulseaudio, #backlight {
+  border-radius: 0;
+}
+
+#pulseaudio.microphone {
+  border-radius: 0 0.5em 0.5em 0;
+}
