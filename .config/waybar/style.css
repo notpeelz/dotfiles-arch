@@ -10,6 +10,7 @@ window#waybar {
 }
 
 #clock,
+#power-profiles-daemon,
 #battery,
 #network,
 #pulseaudio,

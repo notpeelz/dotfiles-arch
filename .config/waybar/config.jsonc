@@ -19,6 +19,7 @@
   "modules-right": [
     "tray",
     "custom/group-start-r1",
+    "power-profiles-daemon",
     "battery",
     "network",
     "backlight",
@@ -87,6 +88,18 @@
   "custom/group-start-r1": {
     "format": " ",
     "tooltip": false,
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "󰊚",
+      "power-saver": ""
+    },
   },
 
   "battery": {
