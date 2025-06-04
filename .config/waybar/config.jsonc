@@ -83,6 +83,7 @@
   "pulseaudio": {
     "format": "{icon} {volume:>3}%",
     "format-muted": "   0%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "uwsm app org.pulseaudio.pavucontrol.desktop",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-",
@@ -102,6 +103,7 @@
     "format": "{format_source}",
     "format-source": " {volume:>3}%",
     "format-source-muted": "   0%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "on-click-right": "uwsm app org.pulseaudio.pavucontrol.desktop",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-",
