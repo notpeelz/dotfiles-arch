@@ -1,0 +1,67 @@
+window {
+  font-family: "JetbrainsMono Nerd Font";
+  font-size: 14pt;
+  color: rgba(205, 214, 244, 1);
+  background-color: rgba(30, 30, 46, 0.5);
+}
+
+button {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 5px;
+  transition: outline-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  outline-style: solid;
+  outline-width: 0;
+  outline-color: rgba(255, 255, 255, 1);
+}
+
+button:focus, button:hover, button:active {
+  background-color: rgba(229, 231, 231, 0.3);
+  outline-width: 2px;
+}
+
+#lock {
+  background-image: image(url("./icons/lock.png"));
+}
+#lock:focus {
+  background-image: image(url("./icons/lock.png"));
+}
+
+#logout {
+  background-image: image(url("./icons/logout.png"));
+}
+#logout:focus {
+  background-image: image(url("./icons/logout.png"));
+}
+
+#suspend {
+  background-image: image(url("./icons/suspend.png"));
+}
+#suspend:focus {
+  background-image: image(url("./icons/suspend.png"));
+}
+
+#hibernate {
+  background-image: image(url("./icons/hibernate.png"));
+}
+#hibernate:focus {
+  background-image: image(url("./icons/hibernate.png"));
+}
+
+#shutdown {
+  background-image: image(url("./icons/shutdown.png"));
+}
+#shutdown:focus {
+  background-image: image(url("./icons/shutdown.png"));
+}
+
+#reboot {
+  background-image: image(url("./icons/reboot.png"));
+}
+#reboot:focus {
+  background-image: image(url("./icons/reboot.png"));
+}
