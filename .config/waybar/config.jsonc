@@ -5,41 +5,44 @@
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  "modules-left": ["custom/toggle-overview", "niri/workspaces"],
-  "modules-center": ["clock"],
+  "modules-left": [
+    "custom/group-start-l1",
+    "custom/toggle-overview",
+    "niri/workspaces",
+    "custom/group-end-l1",
+  ],
+  "modules-center": [
+    "custom/group-start-c1",
+    "clock",
+    "custom/group-end-c1",
+  ],
   "modules-right": [
     "tray",
+    "custom/group-start-r1",
     "battery",
     "network",
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
+    "custom/group-end-r1",
+    "custom/group-start-r2",
     "inhibitor",
     "custom/lock-session",
     "custom/power-button",
+    "custom/group-end-r2",
   ],
+
+  // Left
+
+  "custom/group-start-l1": {
+    "format": " ",
+    "tooltip": false,
+  },
 
   "custom/toggle-overview": {
     "format": "󰣇",
     "on-click": "niri msg action toggle-overview",
     "tooltip": false,
-  },
-
-  "custom/lock-session": {
-    "format": "",
-    "on-click": "loginctl lock-session",
-    "tooltip": false,
-  },
-
-  "custom/power-button": {
-    "format": "",
-    "on-click": "wlogout",
-    "tooltip": false,
-  },
-
-  "tray": {
-    "icon-size": 14,
-    "spacing": 10,
   },
 
   "niri/workspaces": {
@@ -52,20 +55,38 @@
     "spacing": 10,
   },
 
+  "custom/group-end-l1": {
+    "format": " ",
+    "tooltip": false,
+  },
+
+  // Center
+
+  "custom/group-start-c1": {
+    "format": " ",
+    "tooltip": false,
+  },
+
   "clock": {
     "format": "{:%A, %B %d, %Y (%I:%M %p)}",
     "tooltip": false,
   },
 
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-scroll-up": "brightnessctl set 8+",
-    "on-scroll-down": "brightnessctl set 8-",
-    "smooth-scrolling-threshold": 1.0,
+  "custom/group-end-c1": {
+    "format": " ",
     "tooltip": false,
-    "min-length": 6,
+  },
+
+  // Right
+
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10,
+  },
+
+  "custom/group-start-r1": {
+    "format": " ",
+    "tooltip": false,
   },
 
   "battery": {
@@ -78,6 +99,28 @@
     "format-charging": " {capacity:>3}%",
     "format-plugged": " {capacity:>3}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+  },
+
+  "network": {
+    "format-wifi": "{icon} {essid}",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip-format": "",
+    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)",
+    "tooltip-format-ethernet": "",
+    "tooltip-format-disconnected": "",
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 8+",
+    "on-scroll-down": "brightnessctl set 8-",
+    "smooth-scrolling-threshold": 1.0,
+    "tooltip": false,
+    "min-length": 6,
   },
 
   "pulseaudio": {
@@ -110,6 +153,16 @@
     "smooth-scrolling-threshold": 1.0,
   },
 
+  "custom/group-end-r1": {
+    "format": " ",
+    "tooltip": false,
+  },
+
+  "custom/group-start-r2": {
+    "format": " ",
+    "tooltip": false,
+  },
+
   "inhibitor": {
     "what": "sleep",
     "format": "{icon}",
@@ -120,14 +173,20 @@
     "tooltip": false,
   },
 
-  "network": {
-    "format-wifi": "{icon} {essid}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-ethernet": "",
-    "format-disconnected": "",
-    "tooltip-format": "",
-    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)",
-    "tooltip-format-ethernet": "",
-    "tooltip-format-disconnected": "",
+  "custom/lock-session": {
+    "format": "",
+    "on-click": "loginctl lock-session",
+    "tooltip": false,
+  },
+
+  "custom/power-button": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false,
+  },
+
+  "custom/group-end-r2": {
+    "format": " ",
+    "tooltip": false,
   },
 }

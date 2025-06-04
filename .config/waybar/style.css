@@ -9,22 +9,90 @@ window#waybar {
   color: white;
 }
 
-#custom-toggle-overview,
-#custom-power-button,
-#custom-lock-session,
 #clock,
 #battery,
 #network,
 #pulseaudio,
 #backlight,
-#inhibitor,
 #workspaces,
 #tray {
   background: black;
-  padding: 0.5em 0.75em;
-  border-radius: 0.5em;
   opacity: 0.75;
   margin-top: 0.2em;
+  padding: 0.5em 0.75em;
+}
+
+#custom-group-start-l1,
+#custom-group-end-l1,
+#custom-group-start-c1,
+#custom-group-end-c1,
+#custom-group-start-r1,
+#custom-group-end-r1,
+#custom-group-start-r2,
+#custom-group-end-r2 {
+  background: black;
+  opacity: 0.75;
+  margin-top: 0.2em;
+  padding: 0.01em 0.01em;
+  min-width: 0;
+}
+
+#tray {
+  background: black;
+  opacity: 0.75;
+  margin-top: 0.2em;
+  padding: 0.01em 0.01em;
+  min-width: 0;
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  padding: 0 0.75em;
+  border-radius: 0.5em;
+}
+
+#custom-group-start-c1,
+#custom-group-start-r1,
+#custom-group-start-r2 {
+  border-radius: 0.5em 0 0 0.5em;
+  margin-left: 0.25em;
+}
+
+#custom-group-end-l1,
+#custom-group-end-c1,
+#custom-group-end-r1 {
+  border-radius: 0 0.5em 0.5em 0;
+  margin-right: 0.25em;
+}
+
+#custom-group-start-l1 {
+  border-radius: 0.5em 0 0 0.5em;
+  margin-left: 1em;
+}
+
+#custom-group-end-r2 {
+  border-radius: 0 0.5em 0.5em 0;
+  margin-right: 1em;
+}
+
+#custom-toggle-overview {
+  background: black;
+  opacity: 0.75;
+  margin-top: 0.2em;
+  padding: 0.5em 1.5em 0.5em 0.75em;
+}
+
+#inhibitor {
+  background: black;
+  opacity: 0.75;
+  margin-top: 0.2em;
+  padding: 0.5em 0.25em;
+}
+
+#custom-power-button,
+#custom-lock-session {
+  background: black;
+  opacity: 0.75;
+  margin-top: 0.2em;
+  padding: 0.5em 0.75em;
 }
 
 #workspaces {
@@ -44,42 +112,4 @@ window#waybar {
 
 #workspaces button.active {
   background: rgba(255, 255, 255, 0.2);
-}
-
-#custom-toggle-overview {
-  margin-left: 1em;
-  padding-right: 1.15em;
-  margin-right: 0.5em;
-}
-
-#inhibitor {
-  border-radius: 0.5em 0 0 0.5em;
-  margin-left: 0.5em;
-}
-
-#custom-lock-session {
-  border-radius: 0;
-}
-
-#custom-power-button {
-  margin-right: 1em;
-  padding-right: 1.15em;
-  border-radius: 0 0.5em 0.5em 0;
-}
-
-#tray {
-  margin-right: 0.5em;
-  padding-right: 0.9em;
-}
-
-#battery {
-  border-radius: 0.5em 0 0 0.5em;
-}
-
-#network, #pulseaudio, #backlight {
-  border-radius: 0;
-}
-
-#pulseaudio.microphone {
-  border-radius: 0 0.5em 0.5em 0;
 }
