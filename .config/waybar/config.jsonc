@@ -27,7 +27,8 @@
     "pulseaudio#microphone",
     "custom/group-end-r1",
     "custom/group-start-r2",
-    "inhibitor",
+    "inhibitor#idle",
+    "inhibitor#sleep",
     "custom/lock-session",
     "custom/power-button",
     "custom/group-end-r2",
@@ -176,7 +177,17 @@
     "tooltip": false,
   },
 
-  "inhibitor": {
+  "inhibitor#idle": {
+    "what": "idle",
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "🔆",
+      "deactivated": "🌙"
+    },
+    "tooltip": false,
+  },
+
+  "inhibitor#sleep": {
     "what": "sleep",
     "format": "{icon}",
     "format-icons": {
