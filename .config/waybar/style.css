@@ -88,8 +88,7 @@ window#waybar {
   padding: 0.5em 0.25em;
 }
 
-#custom-power-button,
-#custom-lock-session {
+#custom-power-button {
   background: black;
   opacity: 0.75;
   margin-top: 0.2em;

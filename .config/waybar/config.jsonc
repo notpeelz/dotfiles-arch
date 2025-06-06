@@ -29,7 +29,6 @@
     "custom/group-start-r2",
     "inhibitor#idle",
     "inhibitor#sleep",
-    "custom/lock-session",
     "custom/power-button",
     "custom/group-end-r2",
   ],
@@ -194,12 +193,6 @@
       "activated": "☕",
       "deactivated": "💤",
     },
-    "tooltip": false,
-  },
-
-  "custom/lock-session": {
-    "format": "",
-    "on-click": "loginctl lock-session",
     "tooltip": false,
   },
 
