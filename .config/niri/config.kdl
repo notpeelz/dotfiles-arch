@@ -213,10 +213,10 @@ binds {
   }
 
   XF86MonBrightnessUp allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "s" "+1%"
+    spawn "brightnessctl" "-s" "set" "1%+"
   }
   XF86MonBrightnessDown allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "s" "1%-"
+    spawn "brightnessctl" "-s" "set" "1%-"
   }
 
   Mod+Shift+X allow-inhibiting=false { close-window; }
