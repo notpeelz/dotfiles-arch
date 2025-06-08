@@ -8,5 +8,6 @@ then
   clear
   export NIRI_DISABLE_SYSTEM_MANAGER_NOTIFY=1
   systemd-cat -t uwsm-start uwsm start -- /usr/bin/niri --session
+  uwsm stop -r niri
   exit 0
 fi
