@@ -124,7 +124,7 @@
     "format-disconnected": "",
     "format-disabled": "{icon}",
     "tooltip-format": "",
-    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)",
+    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)\nFrequency: {frequency} GHz",
     "tooltip-format-ethernet": "",
     "tooltip-format-disconnected": "",
     "tooltip-format-disabled": "Disabled",
