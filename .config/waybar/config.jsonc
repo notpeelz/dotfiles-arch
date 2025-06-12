@@ -115,14 +115,19 @@
   },
 
   "network": {
+    "format-icons": {
+      "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "disabled": "󰤮",
+    },
     "format-wifi": "{icon} {essid}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format-ethernet": "",
     "format-disconnected": "",
+    "format-disabled": "{icon}",
     "tooltip-format": "",
     "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)",
     "tooltip-format-ethernet": "",
     "tooltip-format-disconnected": "",
+    "tooltip-format-disabled": "Disabled",
   },
 
   "backlight": {
