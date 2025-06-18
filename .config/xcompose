@@ -1,0 +1,4 @@
+# vim:ft=xcompose
+
+# Import default rules
+include "%L"
