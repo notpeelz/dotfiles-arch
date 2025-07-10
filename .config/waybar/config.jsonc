@@ -21,7 +21,8 @@
     "custom/group-start-r1",
     "power-profiles-daemon",
     "battery",
-    "network",
+    "network#ethernet",
+    "network#wifi",
     "bluetooth",
     "backlight",
     "pulseaudio",
@@ -115,17 +116,32 @@
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
   },
 
-  "network": {
+  "network#wifi": {
+    "interface": "wl*",
+    "rfkill": true,
     "format-icons": {
-      "wifi": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
       "disabled": "󰤮",
+      "disconnected": "󰤯",
+      "linked": "󰤯",
     },
-    "format": "",
+    "format": "{icon}",
     "format-wifi": "{icon} {essid}",
-    "format-disabled": "{icon}",
-    "tooltip-format": "",
-    "tooltip-format-wifi": "Signal: {signaldBm} dBm ({signalStrength}%)\nFrequency: {frequency} GHz",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{ifname}\nSignal: {signaldBm} dBm ({signalStrength}%)\nFrequency: {frequency} GHz",
     "tooltip-format-disabled": "Disabled",
+  },
+
+  "network#ethernet": {
+    "interface": "en*",
+    "rfkill": false,
+    "format-icons": {
+      "disconnected": "",
+      "ethernet": "",
+      "linked": "",
+    },
+    "format": "{icon}",
+    "tooltip-format": "{ifname}",
   },
 
   "bluetooth": {
