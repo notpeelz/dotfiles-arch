@@ -36,7 +36,6 @@ input {
     accel-profile "flat"
     accel-speed 0.0
     scroll-factor 0.5
-    disabled-on-external-mouse
   }
 
   disable-power-key-handling
