@@ -1,8 +1,8 @@
-
 [Default Applications]
 x-scheme-handler/discord=vesktop.desktop
 application/x-shellscript=nvim.desktop
 application/x-zerosize=nvim.desktop
+application/octet-stream=nvim.desktop
 application/json=nvim.desktop
 application/xml=nvim.desktop
 text/plain=nvim.desktop
