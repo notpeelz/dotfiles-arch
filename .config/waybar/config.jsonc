@@ -35,6 +35,11 @@
     "custom/group-end-r2",
   ],
 
+  // Per-machine configuration
+  "include": [
+    "~/.config/waybar/network.jsonc",
+  ],
+
   // Left
 
   "custom/group-start-l1": {
@@ -114,34 +119,6 @@
     "format-charging": " {capacity:>3}%",
     "format-plugged": " {capacity:>3}%",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-  },
-
-  "network#wifi": {
-    "interface": "wl*",
-    "rfkill": true,
-    "format-icons": {
-      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
-      "disabled": "󰤮",
-      "disconnected": "󰤯",
-      "linked": "󰤯",
-    },
-    "format": "{icon}",
-    "format-wifi": "{icon} {essid}",
-    "tooltip-format": "{ifname}",
-    "tooltip-format-wifi": "{ifname}\nSignal: {signaldBm} dBm ({signalStrength}%)\nFrequency: {frequency} GHz",
-    "tooltip-format-disabled": "Disabled",
-  },
-
-  "network#ethernet": {
-    "interface": "en*",
-    "rfkill": false,
-    "format-icons": {
-      "disconnected": "",
-      "ethernet": "",
-      "linked": "",
-    },
-    "format": "{icon}",
-    "tooltip-format": "{ifname}",
   },
 
   "bluetooth": {
