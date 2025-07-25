@@ -214,7 +214,7 @@
 
   "custom/power-button": {
     "format": "",
-    "on-click": "wlogout",
+    "on-click": "systemctl --user start wlogout",
     "tooltip": false,
   },
 
