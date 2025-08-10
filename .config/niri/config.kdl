@@ -309,6 +309,9 @@ binds {
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
     spawn "fcitx5-remote" "-t"
   }
+  MouseForward allow-inhibiting=false hotkey-overlay-title="Deafen (Discord)" {
+    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleDeafen"
+  }
   MouseBack allow-inhibiting=false hotkey-overlay-title="Mute Microphone (Discord)" {
     spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleMute"
   }
