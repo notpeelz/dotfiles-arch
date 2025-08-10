@@ -163,7 +163,10 @@ binds {
       "/dev/peelz/pzs" \
       "dev.peelz.pzs.AppLauncher.Toggle"
   }
-  Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
+  Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Tmux" {
+    spawn "uwsm" "app" "kitty-tmux.desktop"
+  }
+  Mod+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
     spawn "uwsm" "app" "kitty.desktop"
   }
   Mod+G allow-inhibiting=false hotkey-overlay-title="Librewolf" {

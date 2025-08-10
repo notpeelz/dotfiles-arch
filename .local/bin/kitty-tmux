@@ -1,0 +1,168 @@
+#!/usr/bin/python3
+
+
+import subprocess
+import sys
+from dataclasses import dataclass
+from enum import Enum
+
+import textual
+import textual.app
+import textual.message
+import textual.widgets
+from textual.binding import Binding
+
+
+DEFAULT_SESSION = "main"
+
+
+def get_sessions() -> list[str]:
+    proc = subprocess.run(
+        ["tmux", "list-sessions", "-F#S"],
+        stdin=subprocess.DEVNULL,
+        capture_output=True,
+        check=True,
+    )
+    s = str(proc.stdout, encoding="utf-8")
+    return [x for x in s.splitlines(keepends=False) if x != ""]
+
+
+class AppState(Enum):
+    Select = 0
+    Input = 1
+
+    def __repr__(self) -> str:
+        return f"AppState.{self.name}"
+
+
+class CustomSelect(textual.widgets.Select[str]):
+    @dataclass
+    class Submitted(textual.message.Message):
+        select: textual.widgets.Select[str]
+        value: str
+
+    BINDINGS = [
+        Binding("down,space,up", "show_overlay", "Show menu", show=False),
+        Binding("enter", "submit", show=False),
+    ]
+
+    async def action_submit(self) -> None:
+        if not self.is_blank():
+            self.post_message(self.Submitted(self, str(self.value)))
+
+
+class SelectApp(textual.app.App[str | None]):
+    CSS = """
+    Screen {
+        align: center top;
+    }
+
+    Select, Input {
+        width: 60;
+        margin: 2;
+    }
+    .hidden {
+        display: None;
+    }
+    """
+
+    BINDINGS = [
+        Binding("ctrl+q", "", show=False),
+        Binding("ctrl+c", "quit", show=False, system=True, priority=True),
+        Binding("ctrl+tab", "switch", system=True, priority=True),
+        Binding("ctrl+enter", "submit", system=True),
+    ]
+
+    _options: list[str] = []
+    _state = AppState.Select
+    _input: textual.widgets.Input
+    _select: CustomSelect
+
+    def action_switch(self) -> None:
+        match self._state:
+            case AppState.Select:
+                self._state = AppState.Input
+            case AppState.Input:
+                self._state = AppState.Select
+        self._update_classes()
+
+    def action_submit(self) -> None:
+        match self._state:
+            case AppState.Select:
+                assert isinstance(self._select.value, str)
+                self.exit(self._select.value)
+            case AppState.Input:
+                self.exit(self._input.value)
+
+    def on_input_submitted(self) -> None:
+        self.action_submit()
+
+    def on_custom_select_submitted(self) -> None:
+        self.action_submit()
+
+    def _update_classes(self) -> None:
+        if self._state == AppState.Select and len(self._options) == 0:
+            self._state = AppState.Input
+
+        match self._state:
+            case AppState.Select:
+                self._input.add_class("hidden", update=False)
+                self._select.remove_class("hidden")
+                self.set_focus(self._select)
+            case AppState.Input:
+                self._select.add_class("hidden", update=False)
+                self._input.remove_class("hidden")
+                self.set_focus(self._input)
+
+    def __init__(self, options: list[str]):
+        super().__init__()
+        self._options = options
+
+    def compose(self) -> textual.app.ComposeResult:
+        self._input = textual.widgets.Input(placeholder=DEFAULT_SESSION)
+        self._select = CustomSelect(
+            ((line, line) for line in self._options),
+            value=next(iter(self._options), textual.widgets.Select.BLANK),
+        )
+        yield self._input
+        yield self._select
+        self._update_classes()
+
+    @textual.on(textual.widgets.Select.Changed)
+    def select_changed(self, event: textual.widgets.Select.Changed) -> None:
+        self.title = str(event.value)
+
+
+if __name__ == "__main__":
+    if not sys.stdout.isatty():
+        subprocess.run(
+            [
+                "kitty",
+                "--class=kitty-tmux",
+                "--title=tmux",
+                "--",
+                sys.argv[0],
+            ],
+            check=False,
+            stdout=subprocess.DEVNULL,
+            stdin=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        exit(0)
+
+    sessions = get_sessions()
+    app = SelectApp(sessions)
+    selected = app.run()
+    if selected == None or selected == "":
+        selected = DEFAULT_SESSION
+
+    subprocess.run(
+        [
+            "sh",
+            "-c",
+            f"tmux -N attach-session -t {selected} 2>/dev/null || tmux -N new-session -s {selected}",
+        ],
+        check=False,
+    )
+
+    exit(0)

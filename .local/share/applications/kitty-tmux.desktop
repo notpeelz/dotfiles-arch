@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Categories=System;TerminalEmulator;
+Name=kitty-tmux
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+TryExec=kitty
+Exec=kitty-tmux
+StartupWMClass=kitty-tmux
+Icon=/home/peelz/.local/share/icons/_kitty.svg
+NoDisplay=true
