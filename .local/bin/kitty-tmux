@@ -9,6 +9,7 @@ from enum import Enum
 
 import textual
 import textual.app
+import textual.events
 import textual.message
 import textual.widgets
 import textual.validation
@@ -107,6 +108,13 @@ class SelectApp(textual.app.App[str | None]):
 
     def on_custom_select_submitted(self) -> None:
         self.action_submit()
+
+    def on_key(self, event: textual.events.Key) -> None:
+        if event.is_printable:
+            event.prevent_default()
+            self._state = AppState.Input
+            self._update_classes()
+            self.post_message(textual.events.Key(event.key, event.character))
 
     def _update_classes(self) -> None:
         if self._state == AppState.Select and len(self._options) == 0:
