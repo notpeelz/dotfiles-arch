@@ -1,0 +1,11 @@
+[Unit]
+Description=tmux server
+After=graphical-session.target
+
+[Service]
+Type=exec
+ExecStart=tmux -D
+Slice=background-graphical.slice
+
+[Install]
+WantedBy=graphical-session.target
