@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-
+import os
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -135,7 +135,8 @@ class SelectApp(textual.app.App[str | None]):
 
 if __name__ == "__main__":
     if not sys.stdout.isatty():
-        subprocess.run(
+        os.execvp(
+            "kitty",
             [
                 "kitty",
                 "--class=kitty-tmux",
@@ -143,28 +144,23 @@ if __name__ == "__main__":
                 "--",
                 sys.argv[0],
             ],
-            check=False,
-            stdout=subprocess.DEVNULL,
-            stdin=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
         )
-        exit(0)
 
     sessions = get_sessions()
     app = SelectApp(sessions)
     selected = app.run()
-    if selected == None:
-        exit(0)
 
-    if selected == "":
-        selected = DEFAULT_SESSION
+    match selected:
+        case None:
+            exit(0)
+        case "":
+            selected = DEFAULT_SESSION
+        case _:
+            pass
 
     subprocess.run(
-        [
-            "sh",
-            "-c",
-            f"tmux -N attach-session -t {selected} 2>/dev/null || tmux -N new-session -s {selected}",
-        ],
+        f"tmux -N attach-session -t {selected} 2>/dev/null || tmux -N new-session -s {selected}",
+        shell=True,
         check=False,
     )
 
