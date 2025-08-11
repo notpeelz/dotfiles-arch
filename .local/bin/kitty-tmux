@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+import re
 from dataclasses import dataclass
 from enum import Enum
 
@@ -10,10 +11,16 @@ import textual
 import textual.app
 import textual.message
 import textual.widgets
+import textual.validation
 from textual.binding import Binding
 
 
 DEFAULT_SESSION = "main"
+RE_SESSION_NAME = re.compile("^(?!-)[a-zA-Z0-9_-]*$")
+
+
+def is_session_name_valid(s: str) -> bool:
+    return RE_SESSION_NAME.match(s) != None
 
 
 def get_sessions() -> list[str]:
@@ -92,7 +99,8 @@ class SelectApp(textual.app.App[str | None]):
                 assert isinstance(self._select.value, str)
                 self.exit(self._select.value)
             case AppState.Input:
-                self.exit(self._input.value)
+                if self._input.is_valid:
+                    self.exit(self._input.value)
 
     def on_input_submitted(self) -> None:
         self.action_submit()
@@ -119,7 +127,12 @@ class SelectApp(textual.app.App[str | None]):
         self._options = options
 
     def compose(self) -> textual.app.ComposeResult:
-        self._input = textual.widgets.Input(placeholder=DEFAULT_SESSION)
+        self._input = textual.widgets.Input(
+            placeholder=DEFAULT_SESSION,
+            validators=[
+                textual.validation.Function(is_session_name_valid, "Invalid name"),
+            ],
+        )
         self._select = CustomSelect(
             ((line, line) for line in self._options),
             value=next(iter(self._options), textual.widgets.Select.BLANK),
