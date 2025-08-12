@@ -1,8 +1,23 @@
 #!/usr/bin/python3
 
-import os
-import subprocess
 import sys
+import os
+
+if __name__ == "__main__":
+    if not sys.stdout.isatty():
+        os.execvp(
+            "kitty",
+            [
+                "kitty",
+                "--class=kitty-tmux",
+                "--title=tmux",
+                "--",
+                sys.argv[0],
+            ],
+        )
+
+
+import subprocess
 import re
 from dataclasses import dataclass
 from enum import Enum
@@ -155,18 +170,6 @@ class SelectApp(textual.app.App[str | None]):
 
 
 if __name__ == "__main__":
-    if not sys.stdout.isatty():
-        os.execvp(
-            "kitty",
-            [
-                "kitty",
-                "--class=kitty-tmux",
-                "--title=tmux",
-                "--",
-                sys.argv[0],
-            ],
-        )
-
     sessions = get_sessions()
     app = SelectApp(sessions)
     selected = app.run()
