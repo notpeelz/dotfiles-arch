@@ -135,7 +135,7 @@ layout {
 
 prefer-no-csd
 
-screenshot-path "~/pictures/screenshots/screenshot-%Y-%m-%d-%H-%M-%S.png"
+screenshot-path "~/pictures/screenshots/%Y-%m/screenshot-%Y-%m-%d-%H-%M-%S.png"
 
 window-rule {
   match app-id=r#"^org.gnome.Nautilus$"# title="^Save As$"
