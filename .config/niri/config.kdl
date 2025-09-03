@@ -52,6 +52,10 @@ cursor {
   xcursor-size 48
 }
 
+xwayland-satellite {
+  off
+}
+
 environment {
   DISPLAY ":0"
 }
