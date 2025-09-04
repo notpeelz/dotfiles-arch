@@ -168,61 +168,61 @@ binds {
       "dev.peelz.pzs.AppLauncher.Toggle"
   }
   Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Tmux" {
-    spawn "uwsm" "app" "kitty-tmux.desktop"
+    spawn-sh "uwsm app kitty-tmux.desktop"
   }
   Mod+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
-    spawn "uwsm" "app" "kitty.desktop"
+    spawn-sh "uwsm app kitty.desktop"
   }
   Mod+G allow-inhibiting=false hotkey-overlay-title="Librewolf" {
-    spawn "uwsm" "app" "librewolf.desktop"
+    spawn-sh "uwsm app librewolf.desktop"
   }
   Mod+Shift+G allow-inhibiting=false hotkey-overlay-title="Librewolf (incognito)" {
-    spawn "uwsm" "app" "librewolf.desktop:new-private-window"
+    spawn-sh "uwsm app librewolf.desktop:new-private-window"
   }
   Mod+H allow-inhibiting=false hotkey-overlay-title="File Explorer" {
-    spawn "uwsm" "app" "org.gnome.Nautilus.desktop"
+    spawn-sh "uwsm app org.gnome.Nautilus.desktop"
   }
 
   XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"
   }
   Shift+XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.05+"
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+"
   }
   XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"
   }
   Shift+XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.05-"
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-"
   }
   XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
   }
   Shift+XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   }
   XF86AudioMicMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
-    spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
   }
 
   XF86AudioPlay allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "play-pause"
+    spawn-sh "playerctl play-pause"
   }
   XF86AudioStop allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "stop"
+    spawn-sh "playerctl stop"
   }
   XF86AudioNext allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "next"
+    spawn-sh "playerctl next"
   }
   XF86AudioPrev allow-inhibiting=false hotkey-overlay-title=null {
-    spawn "playerctl" "previous"
+    spawn-sh "playerctl previous"
   }
 
   XF86MonBrightnessUp allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "-s" "set" "1%+"
+    spawn-sh "brightnessctl -s set 1%+"
   }
   XF86MonBrightnessDown allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
-    spawn "brightnessctl" "-s" "set" "1%-"
+    spawn-sh "brightnessctl -s set 1%-"
   }
 
   Mod+Shift+X allow-inhibiting=false { close-window; }
@@ -310,17 +310,17 @@ binds {
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
 
   Mod+P allow-inhibiting=false {
-    spawn "systemctl" "--user" "start" "wlogout.service"
+    spawn-sh "systemctl --user start wlogout.service"
   }
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
-    spawn "fcitx5-remote" "-t"
+    spawn-sh "fcitx5-remote -t"
   }
   MouseForward allow-inhibiting=false hotkey-overlay-title="Deafen (Discord)" {
-    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleDeafen"
+    spawn-sh "dbus-send --session --print-reply --dest=dev.vencord /dev/vencord dev.vencord.ToggleDeafen"
   }
   MouseBack allow-inhibiting=false hotkey-overlay-title="Mute Microphone (Discord)" {
-    spawn "dbus-send" "--session" "--print-reply" "--dest=dev.vencord" "/dev/vencord" "dev.vencord.ToggleMute"
+    spawn-sh "dbus-send --session --print-reply --dest=dev.vencord /dev/vencord dev.vencord.ToggleMute"
   }
 
   Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
