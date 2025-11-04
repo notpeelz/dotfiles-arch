@@ -127,12 +127,12 @@ layout {
     hide-when-single-tab
     gaps-between-tabs 2
     corner-radius 8
-    width 2
-    gap -2
+    width 4
+    gap -4
     length total-proportion=0.5
     position "top"
     place-within-column
-    active-color "#4C9330"
+    active-color "#AA4869"
     inactive-color "#2C3059"
   }
 }
