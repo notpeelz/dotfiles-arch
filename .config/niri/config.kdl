@@ -324,5 +324,5 @@ binds {
   }
 
   Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
-  Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
