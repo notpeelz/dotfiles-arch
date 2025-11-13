@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+ids=()
+unblocked=0
+while read -r id soft; do
+  ids+=("${id}")
+  if [[ "${soft}" == "unblocked" ]]; then
+    unblocked=1
+  fi
+done < <(rfkill -J | jq \
+  --arg type "${1}" \
+  -r '.rfkilldevices[] | select(.type == $type) | [.id, .soft] | @tsv'
+)
+
+if [[ "${unblocked}" -eq 1 ]]; then
+  for id in "${ids[@]}"; do
+    echo "blocking ${id}"
+    rfkill block "${id}"
+  done
+else
+  for id in "${ids[@]}"; do
+    echo "unblocking ${id}"
+    rfkill unblock "${id}"
+  done
+fi

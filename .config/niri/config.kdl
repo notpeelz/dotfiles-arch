@@ -225,6 +225,13 @@ binds {
     spawn-sh "brightnessctl -s set 1%-"
   }
 
+  XF86RFKill hotkey-overlay-title=null {
+    spawn-sh "rfkill-toggle wlan"
+  }
+  Shift+XF86RFKill hotkey-overlay-title=null {
+    spawn-sh "rfkill-toggle bluetooth"
+  }
+
   Mod+Shift+X allow-inhibiting=false { close-window; }
 
   Mod+Tab { toggle-overview; }
