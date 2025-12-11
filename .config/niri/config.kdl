@@ -158,6 +158,29 @@ window-rule {
   clip-to-geometry true
 }
 
+recent-windows {
+  debounce-ms 750
+
+  open-delay-ms 150
+
+  highlight {
+    urgent-color "#AA4869"
+    active-color "#3B3E93"
+    padding 30
+    corner-radius 8
+  }
+
+  previews {
+    max-height 480
+    max-scale 0.5
+  }
+
+  binds {
+    Mod+Grave { next-window filter="app-id"; }
+    Mod+Shift+Grave { previous-window filter="app-id"; }
+  }
+}
+
 binds {
   Mod+Space allow-inhibiting=false hotkey-overlay-title="App launcher" {
     spawn "dbus-send" \
