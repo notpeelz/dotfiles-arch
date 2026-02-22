@@ -158,7 +158,7 @@ class SelectApp(textual.app.App[str | None]):
         )
         self._select = CustomSelect(
             ((line, line) for line in self._options),
-            value=next(iter(self._options), textual.widgets.Select.BLANK),
+            value=next(iter(self._options), textual.widgets.Select.NULL),
         )
         yield self._input
         yield self._select
