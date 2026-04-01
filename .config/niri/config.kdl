@@ -95,7 +95,7 @@ layer-rule {
 }
 
 layout {
-  background-color "#00000000"
+  background-color "transparent"
 
   gaps 2
 
