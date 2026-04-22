@@ -182,13 +182,8 @@ recent-windows {
 }
 
 binds {
-  Mod+Space allow-inhibiting=false hotkey-overlay-title="App launcher" {
-    spawn "dbus-send" \
-      "--session" \
-      "--print-reply" \
-      "--dest=dev.peelz.pzs" \
-      "/dev/peelz/pzs" \
-      "dev.peelz.pzs.AppLauncher.Toggle"
+  Mod+Space allow-inhibiting=false repeat=false hotkey-overlay-title="App launcher" {
+    spawn-sh "dms ipc launcher toggle"
   }
   Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Tmux" {
     spawn-sh "uwsm app kitty-tmux.desktop"
