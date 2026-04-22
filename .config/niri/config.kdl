@@ -334,8 +334,8 @@ binds {
   Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
 
-  Mod+P allow-inhibiting=false {
-    spawn-sh "systemctl --user start wlogout.service"
+  Mod+P allow-inhibiting=false repeat=false {
+    spawn-sh "dms ipc powermenu toggle"
   }
   Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
