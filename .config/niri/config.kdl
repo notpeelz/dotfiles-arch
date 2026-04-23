@@ -334,6 +334,9 @@ binds {
   Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
   Alt+Print hotkey-overlay-title=null { screenshot-window; }
 
+  Mod+L allow-inhibiting=false repeat=false {
+    spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"
+  }
   Mod+P allow-inhibiting=false repeat=false {
     spawn-sh "dms ipc powermenu toggle"
   }
