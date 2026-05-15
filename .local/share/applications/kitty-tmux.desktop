@@ -8,5 +8,5 @@ Comment=Fast, feature-rich, GPU based terminal
 TryExec=kitty
 Exec=kitty-tmux
 StartupWMClass=kitty-tmux
-Icon=/home/peelz/.local/share/icons/_kitty.svg
+Icon=kitty
 NoDisplay=true
