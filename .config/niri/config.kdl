@@ -176,8 +176,8 @@ recent-windows {
   }
 
   binds {
-    Mod+Grave { next-window filter="app-id"; }
-    Mod+Shift+Grave { previous-window filter="app-id"; }
+    Mod+Grave { next-window; }
+    Mod+Shift+Grave { previous-window; }
   }
 }
 
