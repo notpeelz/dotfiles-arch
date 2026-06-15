@@ -9,6 +9,6 @@ url("about:newtab"),
 url("about:privatebrowsing") {
   .search-inner-wrapper { display: none !important }
   body {
-    background: url("../../../.config/firefox-background") center/cover no-repeat fixed !important;
+    background: url("../../../../../.config/firefox-background") center/cover no-repeat fixed !important;
   }
 }
