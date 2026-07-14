@@ -353,4 +353,7 @@ binds {
 
   Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // no-op to avoid accidentally starting a voice call on discord
+  Ctrl+Apostrophe { spawn-sh ""; }
 }
