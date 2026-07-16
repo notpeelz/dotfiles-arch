@@ -137,6 +137,10 @@ layout {
   }
 }
 
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
 prefer-no-csd
 
 screenshot-path "~/pictures/screenshots/%Y-%m/screenshot-%Y-%m-%d-%H-%M-%S.png"
