@@ -1,0 +1,47 @@
+binds {
+  XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"
+  }
+  Shift+XF86AudioRaiseVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+"
+  }
+  XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"
+  }
+  Shift+XF86AudioLowerVolume allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-"
+  }
+  XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  }
+  Shift+XF86AudioMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  }
+  XF86AudioMicMute allow-inhibiting=false allow-when-locked=true hotkey-overlay-title=null {
+    spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+  }
+  XF86AudioPlay allow-inhibiting=false hotkey-overlay-title=null {
+    spawn-sh "playerctl play-pause"
+  }
+  XF86AudioStop allow-inhibiting=false hotkey-overlay-title=null {
+    spawn-sh "playerctl stop"
+  }
+  XF86AudioNext allow-inhibiting=false hotkey-overlay-title=null {
+    spawn-sh "playerctl next"
+  }
+  XF86AudioPrev allow-inhibiting=false hotkey-overlay-title=null {
+    spawn-sh "playerctl previous"
+  }
+  XF86MonBrightnessUp allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
+    spawn-sh "brightnessctl -s set 1%+"
+  }
+  XF86MonBrightnessDown allow-inhibiting=false hotkey-overlay-title=null allow-when-locked=true {
+    spawn-sh "brightnessctl -s set 1%-"
+  }
+  XF86RFKill hotkey-overlay-title=null {
+    spawn-sh "rfkill-toggle wlan"
+  }
+  Shift+XF86RFKill hotkey-overlay-title=null {
+    spawn-sh "rfkill-toggle bluetooth"
+  }
+}

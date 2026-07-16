@@ -1,0 +1,36 @@
+binds {
+  Mod+Shift+X allow-inhibiting=false { close-window; }
+  Mod+Tab { toggle-overview; }
+  Mod+O allow-inhibiting=false { expand-column-to-available-width; }
+  Mod+V allow-inhibiting=false { switch-focus-between-floating-and-tiling; }
+  Mod+Shift+V allow-inhibiting=false { toggle-window-floating; }
+  Mod+X allow-inhibiting=false { toggle-column-tabbed-display; }
+  Mod+Comma allow-inhibiting=false { consume-or-expel-window-left; }
+  Mod+Period allow-inhibiting=false { consume-or-expel-window-right; }
+  Mod+R allow-inhibiting=false { switch-preset-column-width; }
+  Mod+Shift+R allow-inhibiting=false { reset-window-height; }
+  Mod+F allow-inhibiting=false { maximize-column; }
+  Mod+Shift+F allow-inhibiting=false { fullscreen-window; }
+  Mod+C allow-inhibiting=false { center-column; }
+  Mod+Minus allow-inhibiting=false { set-column-width "-10%"; }
+  Mod+Equal allow-inhibiting=false { set-column-width "+10%"; }
+  Mod+0 allow-inhibiting=false { set-column-width "100%"; }
+  Mod+Shift+Minus allow-inhibiting=false { set-window-height "-10%"; }
+  Mod+Shift+Equal allow-inhibiting=false { set-window-height "+10%"; }
+  Mod+Shift+0 allow-inhibiting=false { set-window-height "100%"; }
+  Print hotkey-overlay-title=null { screenshot show-pointer=false; }
+  Ctrl+Print hotkey-overlay-title=null { screenshot-screen show-pointer=false; }
+  Alt+Print hotkey-overlay-title=null { screenshot-window; }
+  Mod+L allow-inhibiting=false repeat=false {
+    spawn-sh "wl-mirror $(niri msg --json focused-output | jq -r .name)"
+  }
+  Mod+P allow-inhibiting=false repeat=false {
+    spawn-sh "dms ipc powermenu toggle"
+  }
+  Mod+Shift+P allow-inhibiting=false { power-off-monitors; }
+  Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
+    spawn-sh "fcitx5-remote -t"
+  }
+  Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
+  Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}

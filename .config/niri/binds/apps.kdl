@@ -1,0 +1,20 @@
+binds {
+  Mod+Space allow-inhibiting=false repeat=false hotkey-overlay-title="App launcher" {
+    spawn-sh "dms ipc launcher toggle"
+  }
+  Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Tmux" {
+    spawn-sh "uwsm app kitty-tmux.desktop"
+  }
+  Mod+Z allow-inhibiting=false hotkey-overlay-title="Terminal" {
+    spawn-sh "uwsm app kitty.desktop"
+  }
+  Mod+G allow-inhibiting=false hotkey-overlay-title="Librewolf" {
+    spawn-sh "uwsm app librewolf.desktop"
+  }
+  Mod+Shift+G allow-inhibiting=false hotkey-overlay-title="Librewolf (incognito)" {
+    spawn-sh "uwsm app librewolf.desktop:new-private-window"
+  }
+  Mod+H allow-inhibiting=false hotkey-overlay-title="File Explorer" {
+    spawn-sh "uwsm app org.gnome.Nautilus.desktop"
+  }
+}

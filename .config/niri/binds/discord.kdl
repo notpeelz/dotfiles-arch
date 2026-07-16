@@ -1,0 +1,10 @@
+binds {
+  MouseForward allow-inhibiting=false hotkey-overlay-title="Deafen (Discord)" {
+    spawn-sh "dbus-send --session --print-reply --dest=dev.vencord /dev/vencord dev.vencord.ToggleDeafen"
+  }
+  MouseBack allow-inhibiting=false hotkey-overlay-title="Mute Microphone (Discord)" {
+    spawn-sh "dbus-send --session --print-reply --dest=dev.vencord /dev/vencord dev.vencord.ToggleMute"
+  }
+  // no-op to avoid accidentally starting a voice call on discord
+  Ctrl+Apostrophe { spawn-sh ""; }
+}
