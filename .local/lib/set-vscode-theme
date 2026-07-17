@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+if [[ "$#" -ne 1 ]]; then
+  exit 1
+fi
+
+settings="${HOME}/.config/Code/User/settings.json"
+if [[ ! -f "${settings}" ]]; then
+  exit 1
+fi
+
+sed -i \
+  -e 's~"workbench.colorTheme"\s*:\s*"[^"]*"~"workbench.colorTheme": "'"$1"'"~' \
+  "${settings}"

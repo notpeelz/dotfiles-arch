@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+
+last_value=
+
+while read -r line; do
+  ns="$(echo "${line}" | jq -r '.payload.data[0]')"
+  key="$(echo "${line}" | jq -r '.payload.data[1]')"
+  if [[
+    "${ns}" == "org.freedesktop.appearance"
+    && "${key}" == "color-scheme"
+  ]]; then
+    value="$(echo "${line}" | jq -r '.payload.data[2].data')"
+    if [[ "${value}" -ne "${last_value}" ]]; then
+      last_value="${value}"
+      if [[ "${value}" -eq 1 ]]; then
+        echo "color-scheme changed to dark"
+        ~/.local/lib/set-vscode-theme "Dark Modern"
+      else
+        echo "color-scheme changed to light"
+        ~/.local/lib/set-vscode-theme "Light Modern"
+      fi
+    fi
+  fi
+done < <(
+  busctl monitor \
+    --user \
+    --match "interface=org.freedesktop.portal.Settings,member=SettingChanged" \
+    --json=short
+)

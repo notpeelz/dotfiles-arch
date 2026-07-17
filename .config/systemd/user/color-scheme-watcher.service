@@ -1,0 +1,6 @@
+[Unit]
+Description=Monitor color-scheme changes
+
+[Service]
+ExecStart=%h/.local/lib/color-scheme-watcher
+Restart=always
