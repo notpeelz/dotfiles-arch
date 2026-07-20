@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+case "$(gsettings get org.gnome.desktop.interface color-scheme)" in
+  "'prefer-dark'")
+    export GTK_THEME=adw-gtk3:dark
+    ;;
+  *)
+    export GTK_THEME=adw-gtk3
+    ;;
+esac
+
+exec "$@"

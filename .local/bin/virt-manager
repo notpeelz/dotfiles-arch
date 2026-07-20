@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+exec adw-launch /usr/bin/virt-manager "$@"
