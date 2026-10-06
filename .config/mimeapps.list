@@ -7,6 +7,7 @@ application/json=nvim.desktop
 application/xml=nvim.desktop
 text/plain=nvim.desktop
 text/html=librewolf.desktop
+text/markdown=nvim.desktop
 application/xhtml+xml=librewolf.desktop
 x-scheme-handler/http=librewolf.desktop
 x-scheme-handler/https=librewolf.desktop
