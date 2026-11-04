@@ -3,6 +3,9 @@
 # Import default rules
 include "%L"
 
+<Multi_key> <M> <u> : "∪"    U222A    # UNION
+<Multi_key> <M> <i> : "∩"    U2229    # INTERSECTION
+
 # https://askubuntu.com/a/877344
 # GREEK CAPITAL LETTERS
 <Multi_key> <G> <A> : "Α"    U0391    # GREEK CAPITAL LETTER ALPHA
