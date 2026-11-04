@@ -61,29 +61,6 @@ environment {
   DISPLAY ":0"
 }
 
-output "Acer Technologies XB270HU #ASM9tUVZnard" {
-  mode "2560x1440@119.998"
-  scale 1
-  transform "normal"
-  position x=0 y=0
-}
-
-output "Dell Inc. DELL AW2723DF 9CGJNP3" {
-  mode "2560x1440@279.958"
-  scale 1
-  transform "normal"
-  position x=2560 y=0
-  focus-at-startup
-}
-
-output "BOE 0x0BC9 Unknown" {
-  mode "2560x1600@165.000"
-  scale 1.5
-  transform "normal"
-  position x=0 y=0
-  focus-at-startup
-}
-
 overview {
   workspace-shadow {
     off
@@ -186,6 +163,7 @@ recent-windows {
   }
 }
 
+include "outputs.kdl"
 include "binds/apps.kdl"
 include "binds/media.kdl"
 include "binds/navigation.kdl"
