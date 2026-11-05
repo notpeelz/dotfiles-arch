@@ -3,11 +3,11 @@ enable_notification_sounds = false
 enable_overdrive = true
 
 [bar.default]
+start = [ "launcher", "workspaces", "tray" ]
 center = [ "clock" ]
-end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+end = [ "cpu", "ram", "network", "bluetooth", "volume", "brightness", "battery", "notifications", "session" ]
 margin_ends = 0
 radius = 0
-start = [ "launcher", "workspaces" ]
 widget_spacing = 14
 
 [bar.default.dead_zone.actions]
