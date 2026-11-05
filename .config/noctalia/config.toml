@@ -1,4 +1,5 @@
 [audio]
+enable_notification_sounds = false
 enable_overdrive = true
 
 [bar.default]
