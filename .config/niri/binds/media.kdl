@@ -44,4 +44,7 @@ binds {
   Shift+XF86RFKill hotkey-overlay-title=null {
     spawn-sh "rfkill-toggle bluetooth"
   }
+  XF86Tools hotkey-overlay-title=null {
+    spawn-sh "noctalia msg theme-mode-toggle"
+  }
 }

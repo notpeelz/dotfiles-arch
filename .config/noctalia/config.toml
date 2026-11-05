@@ -1,0 +1,85 @@
+[audio]
+enable_overdrive = true
+
+[bar.default]
+center = [ "clock" ]
+end = [ "tray", "notifications", "network", "bluetooth", "volume", "brightness", "battery", "session" ]
+margin_ends = 0
+radius = 0
+start = [ "launcher", "workspaces" ]
+widget_spacing = 14
+
+[bar.default.dead_zone.actions]
+middle = "theme-mode-toggle"
+
+[brightness]
+sync_all_monitors = true
+
+[calendar]
+enabled = true
+
+[control_center.calendar]
+show_events_card = false
+
+[control_center.media]
+show_visualizer = false
+
+[desktop_widgets]
+enabled = false
+
+[location]
+auto_locate = true
+
+[lockscreen]
+enabled = false
+
+[nightlight]
+enabled = true
+
+[shell]
+avatar_path = "~/.config/avatar"
+clipboard_enabled = false
+launch_apps_as_systemd_services = true
+polkit_agent = true
+show_close_buttons = false
+
+[shell.launcher]
+category_icons_only = true
+layout = "simple"
+
+[shell.panel]
+launcher_placement = "attached"
+launcher_position = "auto"
+open_near_click_control_center = true
+open_near_click_launcher = true
+open_near_click_session = true
+polkit_placement = "attached"
+
+[[shell.session.actions]]
+action = "suspend"
+command = "systemctl suspend --check-inhibitors=no"
+shortcut = "s"
+
+[[shell.session.actions]]
+action = "reboot"
+command = "systemctl reboot --check-inhibitors=no"
+shortcut = "r"
+
+[[shell.session.actions]]
+action = "shutdown"
+command = "systemctl poweroff --check-inhibitors=no"
+shortcut = "p"
+variant = "destructive"
+
+[theme]
+community_palette = "Sway Classic"
+mode = "dark"
+source = "community"
+
+[wallpaper]
+enabled = false
+
+[widget.workspaces]
+empty_color = "#85a6b0"
+focused_color = "#85a6b0"
+occupied_color = "#85a6b0"
