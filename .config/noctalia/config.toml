@@ -87,3 +87,7 @@ occupied_color = "#85a6b0"
 
 [widget.workspaces.actions]
 middle = "exec niri msg action toggle-overview"
+
+[widget.launcher]
+glyph = "niri"
+scale = 1.5
