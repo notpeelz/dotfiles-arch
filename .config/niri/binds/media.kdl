@@ -47,4 +47,61 @@ binds {
   XF86Tools hotkey-overlay-title=null {
     spawn-sh "noctalia msg theme-mode-toggle"
   }
+  XF86Calculator hotkey-overlay-title=null {
+    spawn-sh r#"
+      playerctld shift || exit 0
+
+      info=$(playerctl metadata --format '{{playerName}}|{{playerInstance}}') || exit 0
+      name=${info%%|*}
+      inst=${info#*|}
+
+      getprop() {
+        busctl --user --json=short get-property \
+          "org.mpris.MediaPlayer2.${inst}" \
+          /org/mpris/MediaPlayer2 \
+          org.mpris.MediaPlayer2 "${1}" 2>/dev/null |
+          jq -r '.data // empty'
+      }
+
+      entry=$(getprop DesktopEntry)
+      identity=$(getprop Identity)
+
+      title=""
+      icon=""
+      desktop_name=""
+
+      for candidate in "${entry}" "${identity}" "${inst%.instance*}"; do
+        [ -n "${candidate}" ] || continue
+        for dir in \
+          "${HOME}/.local/share/applications" \
+          $(printf '%s\n' "${XDG_DATA_DIRS}" | tr ':' '\n' | sed 's|$|/applications|') \
+          "${HOME}/.local/share/flatpak/exports/share/applications" \
+          /var/lib/flatpak/exports/share/applications
+        do
+          file="${dir}/${candidate}.desktop"
+          if [ -r "${file}" ]; then
+            icon=$(sed -n 's/^Icon=//p' "${file}" | head -n 1)
+            desktop_name=$(sed -n 's/^Name=//p' "${file}" | head -n 1)
+            break 2
+          fi
+        done
+      done
+
+      title=${desktop_name:-${identity:-${name}}}
+      icon=${icon:-${inst%.instance*}}
+
+      state="${XDG_RUNTIME_DIR:-${TMPDIR:-/tmp}}/playerctld-notify-id"
+      last=$(cat "${state}" 2>/dev/null || true)
+
+      case "${last}" in
+        ''|*[!0-9]*) last="" ;;
+      esac
+
+      set -- -e -p -i "${icon:-${HOME}/.local/share/icons/playerctl.svg}" -t 2000 -a playerctld
+      [ -n "${last}" ] && set -- "$@" -r "${last}"
+
+      id=$(notify-send "$@" "${title}")
+      [ -n "${id}" ] && printf '%s\n' "${id}" > "${state}"
+    "#
+  }
 }
