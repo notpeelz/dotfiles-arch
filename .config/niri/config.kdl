@@ -124,6 +124,13 @@ prefer-no-csd
 screenshot-path "~/pictures/screenshots/%Y-%m/screenshot-%Y-%m-%d-%H-%M-%S.png"
 
 window-rule {
+  match app-id=r#"^discord-canary$"#
+  match app-id=r#"^vesktop$"#
+
+  block-out-from "screencast"
+}
+
+window-rule {
   match app-id=r#"^org.gnome.Nautilus$"# title="^Save As$"
   match app-id=r#"^org.gnome.Nautilus$"# title="^File Upload$"
   open-floating true
