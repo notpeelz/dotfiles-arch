@@ -91,3 +91,9 @@ middle = "exec niri msg action toggle-overview"
 [widget.launcher]
 glyph = "niri"
 scale = 1.5
+
+[widget.cpu]
+visualization = "none"
+
+[widget.ram]
+visualization = "none"
