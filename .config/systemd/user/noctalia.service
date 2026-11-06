@@ -1,0 +1,10 @@
+[Unit]
+Description=Noctalia Shell
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=noctalia
+Restart=on-failure
