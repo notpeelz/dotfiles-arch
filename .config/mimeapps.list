@@ -21,6 +21,7 @@ video/mpeg=mpv.desktop
 video/webm=mpv.desktop
 video/mkv=mpv.desktop
 video/avi=mpv.desktop
+video/matroska=mpv.desktop
 image/jpeg=org.gnome.eog.desktop
 image/png=org.gnome.eog.desktop
 image/gif=org.gnome.eog.desktop
