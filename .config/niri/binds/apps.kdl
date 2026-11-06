@@ -2,6 +2,9 @@ binds {
   Mod+Space allow-inhibiting=false repeat=false hotkey-overlay-title="App launcher" {
     spawn-sh "noctalia msg panel-toggle launcher"
   }
+  Mod+Shift+Space allow-inhibiting=false repeat=false hotkey-overlay-title="Noctalia" {
+    spawn-sh "noctalia msg panel-toggle control-center"
+  }
   Mod+Shift+Z allow-inhibiting=false hotkey-overlay-title="Tmux" {
     spawn-sh "uwsm app kitty-tmux.desktop"
   }
