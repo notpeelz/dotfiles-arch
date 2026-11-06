@@ -31,3 +31,4 @@ inode/directory=org.gnome.Nautilus.desktop
 application/pdf=librewolf.desktop
 model/stl=OrcaSlicer.desktop
 model/3mf=OrcaSlicer.desktop
+x-scheme-handler/vrcx=vrcx.desktop
