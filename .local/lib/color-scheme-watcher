@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-last_value=
+last_value=""
 
 while read -r line; do
   ns="$(echo "${line}" | jq -r '.payload.data[0]')"
@@ -10,9 +10,9 @@ while read -r line; do
     && "${key}" == "color-scheme"
   ]]; then
     value="$(echo "${line}" | jq -r '.payload.data[2].data')"
-    if [[ "${value}" -ne "${last_value}" ]]; then
+    if [[ "${value}" != "${last_value}" ]]; then
       last_value="${value}"
-      if [[ "${value}" -eq 1 ]]; then
+      if [[ "${value}" == "1" ]]; then
         echo "color-scheme changed to dark"
         ~/.local/lib/set-vscode-theme "Dark Modern"
       else
