@@ -3,9 +3,9 @@ enable_notification_sounds = false
 enable_overdrive = true
 
 [bar.default]
-start = [ "launcher", "workspaces", "tray" ]
-center = [ "clock" ]
-end = [ "cpu", "ram", "network", "bluetooth", "volume", "brightness", "battery", "notifications", "session" ]
+start = ["launcher", "workspaces", "tray"]
+center = ["clock"]
+end = ["cpu", "ram", "network", "bluetooth", "volume", "brightness", "battery", "notifications", "session"]
 margin_ends = 0
 radius = 0
 widget_spacing = 14
@@ -80,6 +80,16 @@ source = "community"
 [wallpaper]
 enabled = false
 
+[widget.cpu]
+visualization = "none"
+
+[widget.launcher]
+glyph = "niri"
+scale = 1.5
+
+[widget.ram]
+visualization = "none"
+
 [widget.workspaces]
 empty_color = "#85a6b0"
 focused_color = "#85a6b0"
@@ -87,13 +97,3 @@ occupied_color = "#85a6b0"
 
 [widget.workspaces.actions]
 middle = "exec niri msg action toggle-overview"
-
-[widget.launcher]
-glyph = "niri"
-scale = 1.5
-
-[widget.cpu]
-visualization = "none"
-
-[widget.ram]
-visualization = "none"
