@@ -32,3 +32,5 @@ application/pdf=librewolf.desktop
 model/stl=OrcaSlicer.desktop
 model/3mf=OrcaSlicer.desktop
 x-scheme-handler/vrcx=vrcx.desktop
+x-scheme-handler/ror2mm=gale-handler.desktop
+x-scheme-handler/gale=gale-handler.desktop
