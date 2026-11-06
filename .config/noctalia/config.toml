@@ -73,7 +73,7 @@ shortcut = "p"
 variant = "destructive"
 
 [theme]
-community_palette = "Sway Classic"
+community_palette = "Catppuccin Macchiato Mauve"
 mode = "dark"
 source = "community"
 
