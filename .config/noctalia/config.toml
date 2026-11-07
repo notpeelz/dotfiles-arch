@@ -57,19 +57,35 @@ open_near_click_session = true
 polkit_placement = "attached"
 
 [[shell.session.actions]]
-action = "suspend"
+action = "command"
+command = "loginctl lock-session"
+glyph = "lock"
+label = "Lock"
+shortcut = "l"
+variant = "default"
+
+[[shell.session.actions]]
+action = "command"
 command = "systemctl suspend --check-inhibitors=no"
 shortcut = "s"
+glyph = "suspend"
+label = "Suspend"
+variant = "default"
 
 [[shell.session.actions]]
-action = "reboot"
+action = "command"
 command = "systemctl reboot --check-inhibitors=no"
 shortcut = "r"
+glyph = "reboot"
+label = "Reboot"
+variant = "default"
 
 [[shell.session.actions]]
-action = "shutdown"
+action = "command"
 command = "systemctl poweroff --check-inhibitors=no"
 shortcut = "p"
+glyph = "shutdown"
+label = "Power off"
 variant = "destructive"
 
 [theme]
