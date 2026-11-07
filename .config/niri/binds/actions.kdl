@@ -31,6 +31,15 @@ binds {
   Mod+Backslash allow-inhibiting=false hotkey-overlay-title="Next Input Method" {
     spawn-sh "fcitx5-remote -t"
   }
+  Mod+BracketLeft {
+    spawn-sh "noctalia msg notification-dnd-toggle"
+  }
+  Mod+BracketRight {
+    spawn-sh "noctalia msg panel-toggle control-center notifications"
+  }
+  Mod+Shift+BracketRight {
+    spawn-sh "noctalia msg notification-clear-active"
+  }
   Mod+Shift+Slash allow-inhibiting=false { show-hotkey-overlay; }
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
