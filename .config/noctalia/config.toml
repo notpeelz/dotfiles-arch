@@ -103,6 +103,9 @@ visualization = "none"
 glyph = "niri"
 scale = 1.5
 
+[widget.launcher.actions]
+middle = "exec niri msg action toggle-overview"
+
 [widget.ram]
 visualization = "none"
 
