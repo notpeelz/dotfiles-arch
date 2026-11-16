@@ -4,7 +4,7 @@ After=graphical-session.target
 
 [Service]
 Type=exec
-ExecStart=tmux -D
+ExecStart=%h/.nix-profile/bin/tmux -D
 Slice=background-graphical.slice
 
 [Install]
