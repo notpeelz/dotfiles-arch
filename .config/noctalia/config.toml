@@ -108,7 +108,7 @@ glyph = "niri"
 scale = 1.5
 
 [widget.launcher.actions]
-middle = "exec niri msg action toggle-overview"
+right = "exec niri msg action toggle-overview"
 
 [widget.ram]
 visualization = "none"
@@ -119,4 +119,4 @@ focused_color = "#85a6b0"
 occupied_color = "#85a6b0"
 
 [widget.workspaces.actions]
-middle = "exec niri msg action toggle-overview"
+right = "exec niri msg action toggle-overview"
