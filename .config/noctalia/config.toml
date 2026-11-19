@@ -37,6 +37,9 @@ enabled = false
 [nightlight]
 enabled = true
 
+[notification]
+layer = "overlay"
+
 [shell]
 avatar_path = "~/.config/avatar"
 clipboard_enabled = false
@@ -49,7 +52,8 @@ category_icons_only = true
 layout = "simple"
 
 [shell.panel]
-launcher_placement = "attached"
+control_center_placement = "floating"
+launcher_placement = "floating"
 launcher_position = "auto"
 open_near_click_control_center = true
 open_near_click_launcher = true
