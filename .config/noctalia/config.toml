@@ -28,6 +28,10 @@ show_visualizer = false
 [desktop_widgets]
 enabled = false
 
+[keybinds]
+up = ["up", "shift+iso_left_tab"]
+down = ["down", "tab"]
+
 [location]
 auto_locate = true
 
